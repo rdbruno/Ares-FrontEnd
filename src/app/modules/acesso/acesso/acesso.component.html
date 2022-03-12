@@ -1,0 +1,29 @@
+<mat-card>
+    <!--img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Logo AresVet"-->
+    <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="{{ vetColor }}" (click)="chooseVet()">Veterinário</button>
+        <button mat-raised-button color="{{ cliColor }}" (click)="chooseClinica()">Clínica</button>
+    </mat-card-actions>
+</mat-card>
+
+<div *ngIf="vet">
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Acesso">
+            <app-vet-login></app-vet-login>
+        </mat-tab>
+        <mat-tab label="Cadastro">
+            <app-vet-cadastro></app-vet-cadastro>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+<div *ngIf="clinica">
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Acesso">
+            <app-clinica-login></app-clinica-login>
+        </mat-tab>
+        <mat-tab label="Cadastro">
+            <app-clinica-cadastro></app-clinica-cadastro>
+        </mat-tab>
+    </mat-tab-group>
+</div>

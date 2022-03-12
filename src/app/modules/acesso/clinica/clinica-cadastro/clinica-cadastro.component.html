@@ -1,0 +1,99 @@
+<mat-card class="card-cadastro">
+    <form [formGroup]="formCadastro">
+        <div fxLayout="row">
+            <mat-form-field appearance="outline" class="form-fields">
+                <mat-label>Razão Social</mat-label>
+                <input matInput placeholder="Razão Social" formControlName="nome" autocomplete="off">
+                <mat-icon matSuffix>assignment_ind</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+            <div fxFlex="45%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput placeholder="E-mail" formControlName="email" type="email" autocomplete="off">
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxFlex></div>
+            <div fxFlex="45%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Telefone</mat-label>
+                    <input matInput placeholder="Telefone" formControlName="telefone" autocomplete="off" type="tel">
+                    <mat-icon matSuffix>phone_iphone</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+            <div fxFlex="45%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>CNPJ</mat-label>
+                    <input matInput placeholder="CNPJ" formControlName="cnpj" autocomplete="off">
+                    <mat-icon matSuffix>badge</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxFlex></div>
+            <div fxFlex="45%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>CEP</mat-label>
+                    <input matInput placeholder="CEP" formControlName="cep" autocomplete="off">
+                    <mat-icon matSuffix>pin</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+            <div fxFlex="73%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Rua</mat-label>
+                    <input matInput placeholder="Rua" formControlName="rua" autocomplete="off">
+                    <mat-icon matSuffix>place</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxFlex></div>
+            <div fxFlex="22%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Numero</mat-label>
+                    <input matInput placeholder="Numero" formControlName="numero" autocomplete="off">
+                    <mat-icon matSuffix>pin</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field appearance="outline" class="form-fields">
+                <mat-label>Bairro</mat-label>
+                <input type="text" matInput placeholder="Bairro" formControlName="bairro" autocomplete="off">
+                <mat-icon matSuffix>place</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+            <div fxFlex="45%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Senha</mat-label>
+                    <input matInput placeholder="Senha" formControlName="senha" type="password">
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxFlex></div>
+            <div fxFlex="45%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Confirmar Senha</mat-label>
+                    <input matInput placeholder="Confirmar Senha" formControlName="confirmaSenha" type="password">
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button mat-raised-button color="primary" (click)="cadastrar()"><mat-icon>add_business</mat-icon> Cadastrar</button>
+        </div>
+    </form>
+</mat-card>
+
+<div class="card-info" *ngIf="infoMsg">
+    <mat-card [ngClass]="cadastrou ? 'success-msg' : 'error-msg'">{{ infoMsg }}</mat-card>
+</div>

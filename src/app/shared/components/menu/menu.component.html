@@ -1,0 +1,46 @@
+<div class="responsive-container">
+    <mat-toolbar *ngIf="deviceXs">
+        <button mat-icon-button class="example-icon"
+            (click)="mobileQuery.matches ? sidenav.toggle() : isExpanded = !isExpanded; changeIcon()">
+            <mat-icon>{{ menuIcon }}</mat-icon>
+        </button>
+        <span>Ares Veterinário</span>
+    </mat-toolbar>
+
+    <mat-sidenav-container autosize>
+        <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
+            [opened]="mobileQuery.matches ? 'false' : 'true'">
+            <mat-nav-list>
+
+                <mat-list-item *ngIf="!deviceXs">
+                    <mat-icon mat-list-icon (click)="isExpanded = !isExpanded; changeIcon()">{{ menuIcon }}</mat-icon>
+                    <span *ngIf="isExpanded">Ares</span>
+                </mat-list-item>
+
+                <ul class="sidenav-nav">
+                    <li class="sidenav-nav-item" *ngFor="let data of navData">
+                        <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}">
+                            <mat-icon class="sidenav-link-icon">{{ data.icon }}</mat-icon>
+                            <span class="sidenav-link-text" *ngIf="isExpanded">{{ data.label }}</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="logout">
+                    <li class="sidenav-nav-item">
+                        <a class="sidenav-nav-link" (click)="logOut()">
+                            <mat-icon class="sidenav-link-icon">logout</mat-icon>
+                            <span class="sidenav-link-text" *ngIf="isExpanded">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="padded">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

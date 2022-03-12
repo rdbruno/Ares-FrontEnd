@@ -1,0 +1,31 @@
+.card-login {
+    width: 70%;
+    margin: 5% auto;
+    border-radius: 10px;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.example-form {
+    min-width: 200px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-fields {
+    width: 100%;
+}
+
+.card-error {
+    width: 70%;
+    margin: 5% auto;
+    min-width: 200px;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.error-msg {
+    color: red;
+    background-color: rgb(37, 37, 37);
+    font-weight: bold;
+}

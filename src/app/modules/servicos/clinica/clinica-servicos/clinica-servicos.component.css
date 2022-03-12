@@ -1,0 +1,15 @@
+mat-card {
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100px;
+}
+
+mat-table {
+    width: 100%;
+}
+    
+mat-header-cell, mat-cell {
+    width: 25%;
+}

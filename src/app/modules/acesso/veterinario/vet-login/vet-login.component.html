@@ -1,0 +1,27 @@
+<mat-card class="card-login">
+    <form [formGroup]="formLogin" class="example-form" style="padding-top: 20px;">
+        <div fxLayout="row">
+            <mat-form-field appearance="outline" class="form-fields">
+                <mat-label>CPF</mat-label>
+                <input matInput placeholder="CPF" formControlName="documento" autocomplete="off">
+                <mat-icon matSuffix>badge</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field appearance="outline" class="form-fields">
+                <mat-label>Senha</mat-label>
+                <input matInput placeholder="Senha" formControlName="senha" type="password">
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center" >
+            <button mat-raised-button color="primary" (click)="login()"><mat-icon>login</mat-icon> Entrar</button>
+        </div>
+    </form>
+</mat-card>
+
+<div class="card-error" *ngIf="errorMsg">
+    <mat-card class="error-msg">{{ errorMsg }}</mat-card>
+</div>
