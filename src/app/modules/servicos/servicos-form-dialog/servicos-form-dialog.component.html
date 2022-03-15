@@ -1,6 +1,20 @@
 <h1 mat-dialog-title>Hi Bruno</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  
+  <form [formGroup]="formServico"> 
+    <mat-form-field appearance="outline" class="form-fields">
+      <mat-label>Rua</mat-label>
+      <input matInput placeholder="Rua" autocomplete="off">
+      <mat-icon matSuffix>assignment_ind</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-fields">
+      <mat-label>Bairro</mat-label>
+      <input matInput placeholder="Bairro" autocomplete="off">
+      <mat-icon matSuffix>assignment_ind</mat-icon>
+    </mat-form-field>
+    
+  </form>
 
 </div>
 <div mat-dialog-actions>

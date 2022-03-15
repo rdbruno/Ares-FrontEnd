@@ -69,7 +69,7 @@ export class ClinicaServicosComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ServicosFormDialogComponent, { width: '350px' });
+    const dialogRef = this.dialog.open(ServicosFormDialogComponent, { width: '400px' });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

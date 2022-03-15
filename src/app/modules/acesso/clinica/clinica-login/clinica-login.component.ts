@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserLogin } from 'src/app/shared/models/user-login.model';
@@ -12,8 +13,6 @@ import { UserLogin } from 'src/app/shared/models/user-login.model';
 })
 export class ClinicaLoginComponent implements OnInit {
 
-  public errorMsg: string;
-
   public formLogin = this.formBuilder.group({
     documento: [null, [Validators.required]],
     senha: [null, [Validators.required]]
@@ -22,7 +21,8 @@ export class ClinicaLoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -43,11 +43,10 @@ export class ClinicaLoginComponent implements OnInit {
           localStorage.setItem('Login', 'Clinica');
           this.router.navigate(['menu']);
         } else {
-          this.errorMsg = 'Usuário não encontrado!';
+          this.snackBar.open('Usuário não encontrado!', 'Ok', { duration: 3000 });
         }
       }, (err) => {
-        console.log(err);
-        this.errorMsg = err.error.message;
+        this.snackBar.open(err.error.message, 'Ok', { duration: 3000 });
       })
   }
 

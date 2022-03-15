@@ -16,6 +16,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { MenuComponent } from './components/menu/menu.component';
@@ -43,6 +45,8 @@ import { RouterModule } from "@angular/router";
         MatSortModule,
         MatSelectModule,
         MatDialogModule,
+        MatSnackBarModule,
+        MatDatepickerModule,
         FlexLayoutModule,
         RouterModule
     ],
@@ -64,6 +68,8 @@ import { RouterModule } from "@angular/router";
         MatSortModule,
         MatSelectModule,
         MatDialogModule,
+        MatSnackBarModule,
+        MatDatepickerModule,
         FlexLayoutModule,
         MenuComponent
     ]
