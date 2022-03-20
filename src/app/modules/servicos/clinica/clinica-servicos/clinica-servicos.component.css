@@ -1,4 +1,4 @@
-mat-card {
+.card-pesquisa {
     margin-bottom: 20px;
 }
 
@@ -6,10 +6,19 @@ button {
     width: 100px;
 }
 
-mat-table {
+.mat-card-servico {
+    border: 1px solid #cfd8dc;
+    border-radius: 4px 3px 6px / 2px 4px;
+    /* padding-top: 15px;
+    margin: 5px; */
+    min-width: 300px;
+    max-width: 400px;
+}
+
+/* mat-table {
     width: 100%;
 }
     
 mat-header-cell, mat-cell {
     width: 25%;
-}
+} */

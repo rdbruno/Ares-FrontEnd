@@ -4,6 +4,12 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
+interface MenuData {
+  routerLink: string;
+  icon: string;
+  label: string;
+}
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -11,11 +17,7 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  public navData = [
-    { routerLink: 'servicos', icon: 'home', label: 'Serviços' },
-    { routerLink: 'perfil', icon: 'manage_accounts', label: 'Perfil' }
-  ];
-
+  public navData: MenuData[] = [];
   public menuIcon = 'menu';
   public isExpanded = false;
 
@@ -43,6 +45,18 @@ export class MenuComponent implements OnInit {
         this.isExpanded = true;
       }
     });
+
+    if (localStorage.getItem('Login') === 'Clinica') {
+      this.navData = [
+        { routerLink: 'servicos', icon: 'home', label: 'Serviços' },
+        { routerLink: 'perfil', icon: 'manage_accounts', label: 'Perfil' }
+      ]
+    } else {
+      this.navData = [
+        { routerLink: 'servicos', icon: 'home', label: 'Serviços' }
+      ]
+    }
+
   }
 
   public changeIcon(): void {

@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card class="card-pesquisa">
     <mat-card-title>Filtros Pesquisa</mat-card-title>
     <mat-card-content>
       <form [formGroup]="formPesquisa">
@@ -28,41 +28,21 @@
     </mat-card-actions>
 </mat-card>
 
-<div class="mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" matSort>
-  
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-      </ng-container>
-  
-      <!-- Progress Column -->
-      <ng-container matColumnDef="progress">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
-      </ng-container>
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
-      </ng-container>
-  
-      <!-- Fruit Column -->
-      <ng-container matColumnDef="fruit">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Fruit </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.fruit}} </mat-cell >
-      </ng-container>
-  
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  
-      <!-- Row shown when there is no matching data. -->
-      <!--tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-      </tr-->
-    </mat-table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+<div fxLayout="row wrap" xLayoutAlign="start center">
+  <div *ngFor="let servico of servicos">
+    <mat-card class="mat-card-servico" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt-md="0 1 calc(50% - 11px)" fxFlex.lt-sm="100%">
+      <mat-card-header>
+        <img mat-card-avatar class="avatar-icon" [src]="servico.urlIcon" alt="Icone Usuário">
+        <mat-card-title>{{ servico.tipoServico }} - {{ servico.urgencia }}</mat-card-title>
+        <mat-card-subtitle>{{ servico.nome }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="servico.urlBanner"  alt="Imagem do Usuário">
+      <mat-card-content>
+        <p>{{ servico.descricao }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Escolher</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

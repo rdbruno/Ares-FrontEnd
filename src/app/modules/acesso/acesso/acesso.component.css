@@ -1,3 +1,15 @@
+.wallpaper {
+    display: none;
+    width: 45vw;
+    height: 100vh;
+    padding: 0;
+    text-align: center;
+    background: url(../../../../assets/imgs/vetHeart_wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-position: 30% 45%;
+    background-size: cover;
+}
+
 mat-card {
     border-radius: 10px;
     margin: auto;
@@ -7,4 +19,10 @@ mat-card {
 
 button {
     width: 100px;
+}
+
+@media screen and (min-width: 1024px){
+    .wallpaper {
+        display: block;
+    }
 }

@@ -1,49 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicosFormDialogComponent } from '../../servicos-form-dialog/servicos-form-dialog.component';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
-
-const FRUITS = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple'
-];
-
-const NAMES = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth'
-];
+import { Servico } from 'src/app/shared/models/servico.model';
+import { ServicosService } from 'src/app/shared/services/servicos.service';
 
 @Component({
   selector: 'app-clinica-servicos',
@@ -52,39 +15,48 @@ const NAMES = [
 })
 export class ClinicaServicosComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+  //@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  //@ViewChild(MatSort, { static: true }) sort: MatSort;
+  //displayedColumns = ['tipo', 'clinica', 'urgencia', 'status'];
+  //dataSource = new MatTableDataSource<Servico>();
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  public servicos: Servico[];
 
-  constructor(public dialog: MatDialog) {
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-    this.dataSource = new MatTableDataSource(users);
+  constructor(
+    public dialog: MatDialog,
+    private servicosService: ServicosService,
+    public paginatorIntl: MatPaginatorIntl
+  ) {
+    //this.paginatorIntl.itemsPerPageLabel = 'Itens por página';
+    //this.paginatorIntl.nextPageLabel = 'Próxima página';
+    //this.paginatorIntl.previousPageLabel = 'Voltar página';
+    //this.paginatorIntl.lastPageLabel = 'Última página';
+    //this.paginatorIntl.firstPageLabel = 'Primeira página';
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
+    this.carregarServicos();
+  }
+
+  public carregarServicos(): void {
+    this.servicosService.buscaServicoByUser(1, 100)
+      .subscribe((res: any) => {
+        console.log(res);
+        this.servicos = res.servicos;
+        //this.dataSource.data = res.servicos as Servico[];
+      }, (err) => {
+        console.log(err);
+      });
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ServicosFormDialogComponent, { width: '400px' });
+    const dialogRef = this.dialog.open(ServicosFormDialogComponent, { width: '450px' });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.carregarServicos();
     });
-  }
+  }  
 
-}
-
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' + NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))]
-  }
 }

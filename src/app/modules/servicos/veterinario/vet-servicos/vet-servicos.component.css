@@ -1,70 +1,24 @@
-mat-card {
+.card-pesquisa {
   margin-bottom: 20px;
+}
+
+.avatar-icon {
+  background-size: cover;
 }
 
 button {
   width: 100px;
 }
 
+.mat-card-servico {
+  border: 1px solid #cfd8dc;
+  border-radius: 4px 3px 6px / 2px 4px;
+  /* padding-top: 15px;
+  margin: 5px; */
+  min-width: 300px;
+  max-width: 400px;
+}
+
 .form-fields {
   width: 100%;
 }
-
-mat-table {
-  width: 100%;
-}
-  
-mat-header-cell, mat-cell {
-  width: 25%;
-}
-
-/* @media screen and (max-width: 960px) {
-    .mat-table {
-      border: 0;
-      vertical-align: middle
-    }
-  
-    .mat-table caption {
-      font-size: 1em;
-    }
-
-    .mat-table .mat-header-cell {
-      
-      border: 10px solid;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
-
-    .mat-table .mat-row {
-      border-bottom: 5px solid #ddd;
-      display: block;
-    }
-
-    .mat-table .mat-cell {
-      border-bottom: 1px solid #ddd;
-      display: block;
-      font-size: 1em;
-      text-align: right;
-      font-weight: bold;
-      height:30px;
-      margin-bottom: 4%;
-    }
-    .mat-table .mat-cell:before {
-      content: attr(data-label);
-      float: left;
-      text-transform: uppercase;
-      font-weight: normal;
-      
-      font-size: .85em;
-    }
-    .mat-table .mat-cell:last-child {
-      border-bottom: 0;
-    }
-      .mat-table .mat-cell:first-child {
-      margin-top: 4%;
-    }
-} */
