@@ -100,8 +100,8 @@ export class ServicosFormDialogComponent implements OnInit {
       .subscribe((res) => {
         this.snackBar.open(res.message, 'Ok', {
           duration: 3000,
-          horizontalPosition: 'end',
-          verticalPosition: 'top'
+          horizontalPosition: 'start',
+          verticalPosition: 'bottom'
         })
       }, (err) => {
         if (err.error.mensagem === 'Falha na autenticação') {
@@ -110,8 +110,8 @@ export class ServicosFormDialogComponent implements OnInit {
         } else {
           this.snackBar.open(err.error.mensagem, 'Ok', { 
             duration: 3000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top'
+            horizontalPosition: 'start',
+            verticalPosition: 'bottom'
           })
         }
       });      
