@@ -14,4 +14,5 @@ export class Servico {
     public urlBanner: string;
     public urlIcon: string;
     public idPerfilUsuario: number;
+    public dataServico: string;
 }

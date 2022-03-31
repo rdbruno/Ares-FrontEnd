@@ -36,6 +36,7 @@ export class VetServicosComponent implements OnInit {
   public carregarServicos(): void {
     this.servicosService.buscaServicosDisponiveis(1, 100)
       .subscribe((res: any) => {
+        console.log(res);
         this.servicos = res.servicos;        
       }, (err) => {
         this.snackBar.open(err.error.message, 'Ok', { duration: 3000 })

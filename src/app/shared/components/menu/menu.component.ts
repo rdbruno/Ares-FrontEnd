@@ -53,7 +53,8 @@ export class MenuComponent implements OnInit {
       ]
     } else {
       this.navData = [
-        { routerLink: 'servicos', icon: 'home', label: 'Serviços' }
+        { routerLink: 'servicos', icon: 'home', label: 'Serviços' },
+        { routerLink: 'perfil', icon: 'manage_accounts', label: 'Perfil' }
       ]
     }
 

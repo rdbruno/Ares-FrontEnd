@@ -6,6 +6,10 @@ button {
     width: 100px;
 }
 
+.btn_novo {
+    float: right;
+}
+
 .mat-card-servico {
     border: 1px solid #cfd8dc;
     border-radius: 4px 3px 6px / 2px 4px;

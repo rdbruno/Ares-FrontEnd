@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicosFormDialogComponent } from '../../servicos-form-dialog/servicos-form-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Servico } from 'src/app/shared/models/servico.model';
 import { ServicosService } from 'src/app/shared/services/servicos.service';
@@ -15,6 +17,8 @@ import { ServicosService } from 'src/app/shared/services/servicos.service';
 })
 export class ClinicaServicosComponent implements OnInit {
 
+  tipoLista = ['Atendimento Geral', 'Banho e Tosa', 'Castração', 'Cirurgias', 'Exames de Sangue', 'Exames de Ultrassom e Raio-X', 'Internação', 'Remoção de Tártaro', 'Vacinação'];
+
   //@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   //@ViewChild(MatSort, { static: true }) sort: MatSort;
   //displayedColumns = ['tipo', 'clinica', 'urgencia', 'status'];
@@ -22,10 +26,16 @@ export class ClinicaServicosComponent implements OnInit {
 
   public servicos: Servico[];
 
+  public formPesquisa = this.formBuilder.group({
+    tipoServico: [ null ]
+  });
+
   constructor(
     public dialog: MatDialog,
     private servicosService: ServicosService,
-    public paginatorIntl: MatPaginatorIntl
+    public paginatorIntl: MatPaginatorIntl,
+    private snackBar: MatSnackBar,
+    private formBuilder: FormBuilder
   ) {
     //this.paginatorIntl.itemsPerPageLabel = 'Itens por página';
     //this.paginatorIntl.nextPageLabel = 'Próxima página';
@@ -43,10 +53,10 @@ export class ClinicaServicosComponent implements OnInit {
   public carregarServicos(): void {
     this.servicosService.buscaServicoByUser(1, 100)
       .subscribe((res: any) => {
-        console.log(res);
         this.servicos = res.servicos;
         //this.dataSource.data = res.servicos as Servico[];
       }, (err) => {
+        this.snackBar.open(err.error.message, 'Ok', { duration: 3000 })
         console.log(err);
       });
   }

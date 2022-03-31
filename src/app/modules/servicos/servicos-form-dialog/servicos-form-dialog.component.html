@@ -8,7 +8,7 @@
           <mat-label>Tipo de Serviço</mat-label>
           <mat-select name="tipo" formControlName="idTipoServico">
             <mat-option *ngFor="let tipo of listTipo" [value]="tipo.value">
-              {{tipo.viewValue}}
+              {{ tipo.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -19,12 +19,19 @@
           <mat-label>Urgência do Serviço</mat-label>
           <mat-select name="tipo" formControlName="idUrgencia">
             <mat-option *ngFor="let urgencia of listUrgencia" [value]="urgencia.value">
-              {{urgencia.viewValue}}
+              {{ urgencia.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
     </div>    
+
+    <mat-form-field appearance="fill">
+      <mat-label>Data do Serviço</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dataServico">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-fields">
       <mat-label>Rua</mat-label>

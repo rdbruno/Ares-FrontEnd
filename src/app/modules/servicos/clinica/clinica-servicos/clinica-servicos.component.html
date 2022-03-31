@@ -1,14 +1,24 @@
 <mat-card class="card-pesquisa">
   <mat-card-title>Filtros Pesquisa</mat-card-title>
   <mat-card-content>
+    <form [formGroup]="formPesquisa">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Escolha uma opção</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let tipo of tipoLista" [value]="tipo">{{ tipo }}</mat-option>
+          </mat-select>
+      </mat-form-field> 
+      </div>
+    </form>
     
-    <div fxLayoutAlign="end center">
-      <button mat-raised-button color="primary" (click)="openDialog()"><mat-icon>add_circle</mat-icon> Novo</button>
-    </div>
+    
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary">Pesquisar</button>
     <button mat-raised-button>Limpar</button>
+
+    <button mat-raised-button color="primary" class="btn_novo" (click)="openDialog()"> <mat-icon>add_circle</mat-icon> Novo</button>
   </mat-card-actions>
 </mat-card>
 
@@ -19,13 +29,9 @@
         <mat-card-title>{{ servico.tipoServico }} - {{ servico.urgencia }}</mat-card-title>
         <mat-card-subtitle>{{ servico.idClinica }}</mat-card-subtitle>
       </mat-card-header>
-      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <mat-card-content>
         <p>{{ servico.descricao }}</p>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary">Escolher</button>
-      </mat-card-actions>
     </mat-card>
   </div>
 </div>

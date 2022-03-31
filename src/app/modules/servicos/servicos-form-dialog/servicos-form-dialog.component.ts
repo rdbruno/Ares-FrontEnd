@@ -63,7 +63,8 @@ export class ServicosFormDialogComponent implements OnInit {
     bairro: [null, [ Validators.required ]],
     numero: [null, [ Validators.required ]],
     cep: [null, [ Validators.required, Validators.minLength(5), Validators.maxLength(8) ]],
-    descricao: [null, [ Validators.required ]]
+    descricao: [null, [ Validators.required ]],
+    dataServico: [null, [ Validators.required ]]
   });
 
   constructor(
@@ -86,7 +87,8 @@ export class ServicosFormDialogComponent implements OnInit {
       servico: {
         idUrgencia: this.formServico.value.idUrgencia,
         idTipoServico: this.formServico.value.idTipoServico,
-        descricao: this.formServico.value.descricao
+        descricao: this.formServico.value.descricao,
+        dataServico: this.formServico.value.dataServico
       },
       endereco: {
           rua: this.formServico.value.rua,
@@ -110,7 +112,7 @@ export class ServicosFormDialogComponent implements OnInit {
         } else {
           this.snackBar.open(err.error.mensagem, 'Ok', { 
             duration: 3000,
-            horizontalPosition: 'start',
+            horizontalPosition: 'center',
             verticalPosition: 'bottom'
           })
         }
