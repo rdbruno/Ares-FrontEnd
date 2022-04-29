@@ -29,3 +29,12 @@
     background-color: rgb(37, 37, 37);
     font-weight: bold;
 }
+
+button {
+    color: white;
+    background-color: #5db0fd;
+}
+
+button:hover {
+    background-color: #0d75ec;
+}

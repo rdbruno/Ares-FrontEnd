@@ -1,3 +1,16 @@
 .form-fields {
     width: 100%;
 }
+
+.btn-salvar {
+    color: white;
+    background-color: #5db0fd;
+}
+
+.btn-salvar:hover {
+    background-color: #0d75ec;
+}
+
+.btn-cancelar:hover {
+    background-color: #ff7d32;
+}

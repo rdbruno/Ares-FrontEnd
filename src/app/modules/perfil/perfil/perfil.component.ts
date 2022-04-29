@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
+  public vetService: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('Login') === 'Vet') {
+      this.vetService = true
+    } else {
+      this.vetService = false;
+    }
   }
 
 }

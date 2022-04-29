@@ -17,7 +17,8 @@ import { ServicosService } from 'src/app/shared/services/servicos.service';
 })
 export class ClinicaServicosComponent implements OnInit {
 
-  tipoLista = ['Atendimento Geral', 'Banho e Tosa', 'Castração', 'Cirurgias', 'Exames de Sangue', 'Exames de Ultrassom e Raio-X', 'Internação', 'Remoção de Tártaro', 'Vacinação'];
+  public tipoLista = ['Atendimento Geral', 'Banho e Tosa', 'Castração', 'Cirurgias', 'Exames de Sangue', 'Exames de Ultrassom e Raio-X', 'Internação', 'Remoção de Tártaro', 'Vacinação'];
+  public escolhidos = false;
 
   //@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   //@ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -27,7 +28,8 @@ export class ClinicaServicosComponent implements OnInit {
   public servicos: Servico[];
 
   public formPesquisa = this.formBuilder.group({
-    tipoServico: [ null ]
+    tipoServico: [ null ],
+    nomeClinica: [ null ]
   });
 
   constructor(

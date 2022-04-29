@@ -1,9 +1,40 @@
-<mat-card class="card-pesquisa">
-  <mat-card-title>Filtros Pesquisa</mat-card-title>
+<mat-toolbar class="barra-servicos">
+  <span>Serviços</span>
+</mat-toolbar>
+
+<div style="margin-top: 10px; margin-bottom: 10px;">
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filtros Pesquisa
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <form [formGroup]="formPesquisa">
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo de Serviço</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let tipo of tipoLista" [value]="tipo">{{ tipo }}</mat-option>
+            </mat-select>
+        </mat-form-field> 
+
+        <mat-checkbox class="check-margin" [(ngModel)]="escolhidos">Escolhidos</mat-checkbox>
+      </form>
+
+      <mat-action-row>
+        <button mat-raised-button (click)="openDialog()"><mat-icon>add_circle</mat-icon>Novo</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<!-- <mat-card class="card-pesquisa">
+  <mat-card-title>Filtros Pesquisas</mat-card-title>
   <mat-card-content>
     <form [formGroup]="formPesquisa">
       <div>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Escolha uma opção</mat-label>
           <mat-select>
             <mat-option *ngFor="let tipo of tipoLista" [value]="tipo">{{ tipo }}</mat-option>
@@ -20,7 +51,7 @@
 
     <button mat-raised-button color="primary" class="btn_novo" (click)="openDialog()"> <mat-icon>add_circle</mat-icon> Novo</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
 
 <div fxLayout="row wrap" xLayoutAlign="start center">
   <div *ngFor="let servico of servicos">

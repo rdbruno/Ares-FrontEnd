@@ -9,6 +9,8 @@ import { VetCadastroComponent } from './veterinario/vet-cadastro/vet-cadastro.co
 
 import { SharedModule } from "src/app/shared/shared.module";
 import { AcessoRoutingModule } from "./acesso-routing.module";
+import { ClienteCadastroComponent } from './cliente/cliente-cadastro/cliente-cadastro.component';
+import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +18,9 @@ import { AcessoRoutingModule } from "./acesso-routing.module";
         ClinicaLoginComponent,
         ClinicaCadastroComponent,
         VetLoginComponent,
-        VetCadastroComponent
+        VetCadastroComponent,
+        ClienteCadastroComponent,
+        ClienteLoginComponent
     ],
     imports: [
         CommonModule,

@@ -5,9 +5,13 @@
 
     <div fxFlex.lg="55%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%" class="conteudo">
         <mat-card>
+            <mat-card-content>
+                <h2>Ares</h2>
+            </mat-card-content>
             <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
                 <button mat-raised-button color="{{ vetColor }}" (click)="chooseVet()">Veterinário</button>
                 <button mat-raised-button color="{{ cliColor }}" (click)="chooseClinica()">Clínica</button>
+                <!-- <button mat-raised-button color="{{ clienteColor }}" (click)="chooseCliente()">Cliente</button> -->
             </mat-card-actions>
         </mat-card>
 
@@ -29,6 +33,17 @@
                 </mat-tab>
                 <mat-tab label="Cadastro">
                     <app-clinica-cadastro></app-clinica-cadastro>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+
+        <div *ngIf="cliente">
+            <mat-tab-group mat-align-tabs="center">
+                <mat-tab label="Acesso">
+                    <app-cliente-login></app-cliente-login>
+                </mat-tab>
+                <mat-tab label="Cadastro">
+                    <app-cliente-cadastro></app-cliente-cadastro>
                 </mat-tab>
             </mat-tab-group>
         </div>

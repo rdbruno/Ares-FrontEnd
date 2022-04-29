@@ -1,9 +1,38 @@
+.barra-servicos {
+    background: linear-gradient(0deg, #0d75ec 0, #5db0fd 100%);
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
 .card-pesquisa {
+    margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.check-margin {
+    margin: 0 10px;
 }
 
 button {
     width: 100px;
+    color: white;
+    background-color: #5db0fd;
+}
+
+button:hover {
+    background-color: #0d75ec;
 }
 
 .btn_novo {
@@ -13,8 +42,8 @@ button {
 .mat-card-servico {
     border: 1px solid #cfd8dc;
     border-radius: 4px 3px 6px / 2px 4px;
-    /* padding-top: 15px;
-    margin: 5px; */
+    padding-top: 15px;
+    margin: 5px;
     min-width: 300px;
     max-width: 400px;
 }

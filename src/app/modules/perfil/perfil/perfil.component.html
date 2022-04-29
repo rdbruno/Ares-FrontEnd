@@ -1,1 +1,6 @@
-<p>perfil works!</p>
+<div *ngIf="vetService">
+    <app-vet-perfil></app-vet-perfil>
+</div>
+<div *ngIf="!vetService"> 
+    <app-clinica-perfil></app-clinica-perfil>
+</div>

@@ -1,24 +1,50 @@
-.card-pesquisa {
+.barra-servicos {
+  background: linear-gradient(0deg, #0d75ec 0, #5db0fd 100%);
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+/* .card-pesquisa {
   margin-bottom: 20px;
 }
 
 .avatar-icon {
   background-size: cover;
-}
+} */
 
 button {
   width: 100px;
 }
 
-.mat-card-servico {
+/* .mat-card-servico {
   border: 1px solid #cfd8dc;
   border-radius: 4px 3px 6px / 2px 4px;
-  /* padding-top: 15px;
-  margin: 5px; */
+  padding-top: 15px;  -- Comentado
+  margin: 5px; -- Comentado
   min-width: 300px;
   max-width: 400px;
-}
+} */
 
 .form-fields {
   width: 100%;
+}
+
+mat-table {
+  width: 100%;
+}
+    
+mat-header-cell, mat-cell {
+  width: 25%;
 }
